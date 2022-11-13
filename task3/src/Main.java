@@ -13,22 +13,35 @@ public class Main {
         JsonReader reader1 = new JsonReader(new FileReader("tests.json"));
         JsonReader reader2 = new JsonReader(new FileReader("values.json"));
 
-        // 1. Java object to JSON file
-//        List<Tests> data = gson.fromJson(reader1, List.class);
+        Type listType = new TypeToken<Tests>() {}.getType();
+        Tests tests = gson.fromJson(reader1, listType);
 
-        Type listType = new TypeToken<List<Value>>() {}.getType();
-        List<Value> list = gson.fromJson(reader1, listType);
+        Type listType2 = new TypeToken<SubValues>() {}.getType();
+        SubValues values = gson.fromJson(reader2, listType2);
 
-        for (Value i: list)
-            System.out.println(i.toString());
+//        System.out.println(tests.getTests().get(0));
+        for (int i = 0; i < tests.getTests().size(); i++) {
+            System.out.println(tests.getTests().get(i).getId());
+            if (tests.getTests().get(i).getValues() != null) {
+                tests.getTests().get(i).getValues().get()
+            }
+            
+        }
+        while (true) {
+            if ()
+        }
+//        for (int i = 0; i < values.getSubValuesData().size(); i++) {
+//
+//        }
+
+//        for (Value i: list)
+//            System.out.println(i.toString());
 //        Tests[] tests = gson.fromJson(reader1, Tests[].class);
 //        System.out.println(tests.toString());
     }
-//    public String loadFileFromClasspath(String fileName) throws IOException {
-//        ClassLoader classLoader = getClass().getClassLoader();
-//        try (InputStream inputStream = classLoader.getResourceAsStream(fileName)) {
-//            // common-io
-//            return IOUtils.toString(inputStream, StandardCharsets.UTF_8);
-//        }
-//    }
+    public static Tests getArray(Value t1) {
+        if (t1.getValues() != null)
+            return getArray(t1.getValues().get())
+    }
+
 }
