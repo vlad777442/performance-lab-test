@@ -1,15 +1,14 @@
 import java.util.List;
 
 public class SubValues {
-    public List<SubValuesData> getSubValuesData() {
-        return subValuesData;
+
+    private List<SubValuesData> values;
+
+    public List<SubValuesData> getValues() {
+        return values;
     }
 
-    public void setSubValuesData(List<SubValuesData> subValuesData) {
-        this.subValuesData = subValuesData;
+    public void setValues(List<SubValuesData> values) {
+        this.values = values;
     }
-
-    private List<SubValuesData> subValuesData;
-
-
 }
